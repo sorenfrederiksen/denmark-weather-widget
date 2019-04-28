@@ -1,0 +1,113 @@
+@value fonts "../../global-styles/fonts.css";
+@value colors "../../global-styles/colors.css";
+@value sansSerifBold, sansSerifRegular from fonts;
+@value vejrGreen, logoRed, ligeNuRed, breakingYellow, sportBlue, lightAccentGrey, darkAccentGrey, textBlack from colors;
+
+.weatherWidget {
+  width: 100%;
+  max-width: 320px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  background: #fff;
+  border: 1px solid ligeNuRed;
+  box-shadow: 2px 2px 2px RGBA(0, 0, 0, 0.2);
+
+  font-family: sansSerifRegular;
+}
+
+.weatherWidget__header {
+  background: ligeNuRed;
+  color: #fff;
+  position: relative;
+}
+
+.weatherWidget__header__h2 {
+  margin: 0;
+  font-weight: 100;
+  font-size: 16px;
+  span {
+    display: inline-block;
+  }
+}
+
+.weatherWidget__header__h2__prefix {
+}
+
+.weatherWidget__header__label {
+  padding: 4px;
+  background: #fff;
+  color: ligeNuRed;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-family: sansSerifRegular;
+  font-style: italic;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.weatherWidget__header__search {
+  font-family: sansSerifBold;
+  padding-left: 74px;
+}
+
+.weatherWidget__body {
+  position: relative;
+
+  border-right: 1px solid lightAccentGrey;
+  border-left: 1px solid lightAccentGrey;
+  border-bottom: 1px solid lightAccentGrey;
+}
+
+.weatherWidget__body__icon {
+  padding: 8px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 35%;
+  max-height: 100%;
+
+  svg {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.weatherWidget__body__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 35%;
+}
+
+.weatherWidget__body__list__item {
+  list-style: none;
+  padding: 8px;
+  background: lightAccentGrey;
+}
+
+.weatherWidget__body__list__item:nth-child(2n) {
+  background: #fff;
+}
+
+.weatherWidget__body__list__item__label {
+  display: inline-block;
+  font-family: sansSerifBold;
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+.weatherWidget__body__list__item__weatherDirection {
+  transition: transfrom 350ms 351ms ease;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}

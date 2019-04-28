@@ -1,0 +1,21 @@
+@value colors "./global-styles/colors.css";
+@value lightAccentGrey from colors;
+
+@import-normalize;
+
+.app {
+  margin: 0 auto;
+  min-height: 100vh;
+  height: 100%;
+  background: lightAccentGrey;
+  position: relative;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+

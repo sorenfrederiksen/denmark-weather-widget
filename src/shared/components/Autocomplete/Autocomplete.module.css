@@ -1,0 +1,158 @@
+@value fonts "../../global-styles/fonts.css";
+@value colors "../../global-styles/colors.css";
+@value sansSerifBold, sansSerifRegular from fonts;
+@value vejrGreen, logoRed, ligeNuRed, breakingYellow, sportBlue, lightAccentGrey, darkAccentGrey, textBlack from colors;
+
+@value ligeNuRedLighter: #ff5c5c;
+
+.autocomplete {
+  position: relative;
+}
+.autocomplete :global(div) {
+  position: relative;
+}
+.autocomplete :global(input[type='text']) {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #fff;
+  font-family: sansSerifRegular;
+  font-weight: 400;
+  border: none;
+  transition: border-color 300ms ease;
+  padding: 8.125px 12.1875px;
+  width: 100%;
+  display: block;
+  cursor: text;
+  outline: initial;
+  background: ligeNuRed;
+  transition: background 300ms ease;
+}
+.autocomplete :global(input[type='text']:hover),
+.autocomplete :global(input[type='text']:focus) {
+  background: ligeNuRedLighter;
+}
+.autocomplete.is--deactivated :global(input[type='text']) {
+  background: #d7dbe3;
+  color: #707070;
+  cursor: default;
+}
+.autocomplete.is--deactivated :global(input[type='text']:focus) {
+  background: #d7dbe3;
+  color: #707070;
+}
+.autocomplete :global(input[type='text']) {
+  padding-right: 36.5625px;
+}
+.autocomplete :global(button) {
+  position: absolute;
+  height: 55%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  top: 8.125px;
+  right: 12.1875px;
+}
+.autocomplete :global(button) :global(svg) {
+  height: 100%;
+  color: #fff;
+}
+.autocomplete.is--deactivated :global(button) {
+  cursor: initial;
+}
+.autocomplete :global(label) {
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.autocomplete :global(.awesomplete) {
+  position: relative;
+}
+.autocomplete :global(.awesomplete[hidden]) {
+  display: none;
+}
+.autocomplete :global(.awesomplete) :global(.visually-hidden) {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+.autocomplete :global(.awesomplete) > :global(input) {
+  display: block;
+}
+.autocomplete :global(.awesomplete) > :global(ul) {
+  position: absolute;
+  left: 0;
+  top: 98%;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #c51c1c;
+  text-shadow: none;
+  transition: 300ms transform cubic-bezier(0.4, 0.2, 0.5, 1.4), 300ms opacity ease;
+  transform-origin: 1.43em -0.43em;
+  transform: translateY(0px);
+  max-height: 200px;
+  overflow-y: auto;
+}
+.autocomplete :global(.awesomplete) > :global(ul[hidden]),
+.autocomplete :global(.awesomplete) > :global(ul:empty) {
+  opacity: 0;
+  transform: translateY(50px);
+  display: block;
+  pointer-events: none;
+  transition-timing-function: ease;
+}
+.autocomplete :global(.awesomplete) > :global(ul) > :global(li) {
+  position: relative;
+  padding: 9.75px 11.375px;
+  cursor: pointer;
+  color: #232323;
+  font-family: 'PT Sans', 'Trebuchet MS', 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  text-align: left;
+}
+.autocomplete :global(.awesomplete) > ul > :global(li:hover) {
+  background: #e6e6e6;
+  font-weight: 700;
+  color: #232323;
+}
+.autocomplete :global(.awesomplete) > :global(ul) > :global(li[aria-selected='true']) {
+  background: #e6e6e6;
+  font-weight: 700;
+  color: #232323;
+}
+.autocomplete :global(.awesomplete) > :global(ul) > :global(li[aria-selected='true']:first-child) {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.autocomplete :global(.awesomplete) > :global(ul) > :global(li[aria-selected='true']:last-child) {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.autocomplete :global(.awesomplete) :global(mark) {
+  background: #e6e6e6;
+}
+.autocomplete :global(.awesomplete) :global(li:hover) :global(mark) {
+  background: #cccccc;
+}
+.autocomplete :global(.awesomplete) :global(li[aria-selected='true']) :global(mark) {
+  background: #cccccc;
+  color: inherit;
+}
+.autocomplete :global(input[type='text']) {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+.autocomplete :global(button) {
+  height: 45%;
+  top: 10.125px;
+  right: 11.1875px;
+  width: 16px;
+}

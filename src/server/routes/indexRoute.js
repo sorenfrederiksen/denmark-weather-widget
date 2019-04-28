@@ -41,7 +41,7 @@ const indexRoute = () => {
         );
       } catch (error) {
         console.log(error);
-        return res.send(error);
+        return res.send(error.stack);
       }
     }
   };

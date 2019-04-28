@@ -76,7 +76,7 @@ app.use((err, req, res, next) => {
 app.listen(process.env.PORT || 8500, () => {
   console.log(
     `[${new Date().toISOString()}]`,
-    chalk.blue(`App is running: 🌎 ${process.env.HOST || 'http://localhost'}:${process.env.PORT || 8500}`)
+    chalk.blue(`Weather widget is running 📺: ${process.env.HOST || 'http://localhost'}:${process.env.PORT || 8500}`)
   );
 });
 

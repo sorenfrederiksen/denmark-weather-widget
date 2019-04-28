@@ -1,4 +1,5 @@
 // @flow
+
 import cityList from '../../shared/assets/data/cityList.json';
 
 //
@@ -10,8 +11,9 @@ export function getCityListRoute() {
     try {
       res.send(cityList);
       res.end();
-    } catch (err) {
-      throw err;
+    } catch (error) {
+      console.log(`[ERR] Get city list route: ${error.toString()}`);
+      return res.send('There was an error (see logs).');
     }
   };
 }

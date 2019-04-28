@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { StaticRouter as Router } from 'react-router-dom';
 import { DEFAULT_CITY } from '../utils/constants';
 import { getCityWeather } from './getCityWeatherRoute';
 import Html from '../components/HTML';
@@ -21,11 +20,7 @@ const indexRoute = () => {
     } else {
       try {
         const state = await getCityWeather(city);
-        const content = renderToString(
-          <Router location={req.url} context={{}}>
-            <App {...state} />
-          </Router>
-        );
+        const content = renderToString(<App {...state} />);
 
         return res.send(
           '<!doctype html>' +
@@ -40,8 +35,8 @@ const indexRoute = () => {
             )
         );
       } catch (error) {
-        console.log(error);
-        return res.send(error.stack);
+        console.log(`[ERR] Index route: ${error.toString()}`);
+        return res.send('There was an error (see logs).');
       }
     }
   };

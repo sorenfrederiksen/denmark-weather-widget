@@ -34,7 +34,7 @@ function simplifyWeatherData(weatherData) {
     tempMax: temp_max,
     humidity,
     windSpeed: speed,
-    windDirection: deg || undefined,
+    windDirection: deg,
   };
 }
 
@@ -44,7 +44,8 @@ export async function getCityWeather(city: string) {
     const simplifiedData = simplifyWeatherData(data);
     return simplifiedData;
   } catch (error) {
-    return error;
+    console.log(`[ERR] Get city weather route: ${error.toString()}`);
+    return res.send('There was an error (see logs).');
   }
 }
 
@@ -60,8 +61,8 @@ export function getCityWeatherRoute() {
       res.send(cityWeather);
       res.end();
     } catch (error) {
-      res.send(error);
-      return error;
+      console.log(`[ERR] Get city weather route: ${error.toString()}`);
+      return res.send('There was an error (see logs).');
     }
   };
 }

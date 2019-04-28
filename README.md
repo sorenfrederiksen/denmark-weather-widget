@@ -26,8 +26,8 @@ Unfortunately, though these are setup and a few tests are written, I didn't have
 together an adequate test suite.
 
 You'll see the coverage report and everything else is all there, but I couldn't get these up and
-running and passing during the time allotted - and yeah, my girlfriend is currently hassling me to
-go to this food-truck festival in Nørrebro.
+running and passing during the time allotted. (My girlfriend is currently hassling me to
+go to this food-truck festival in Nørrebro, unfortunately, but I may be able to get back to this later and will happily discuss how I would have built out the test suite further.)
 
 ### Building
 

@@ -5,6 +5,7 @@ import styles from './WeatherWidget.module.css';
 import WeatherImage from '../WeatherImage';
 import Autocomplete from '../Autocomplete';
 import getCityData from '../../utils/getCityData';
+import getCityList from '../../utils/getCityList';
 import { ReactComponent as WindDirectionIndicator } from '../../assets/images/WindDirectionIndicator.svg';
 
 //
@@ -89,7 +90,7 @@ class WeatherWidget extends Component<WeatherWidgetProps, State> {
 
   setupCityList = async () => {
     try {
-      const { data } = await get('http://localhost:8500/get-city-list');
+      const data = getCityList();
       this.setState({ cityList: data });
     } catch (error) {
       throw error;

@@ -90,7 +90,7 @@ class WeatherWidget extends Component<WeatherWidgetProps, State> {
 
   setupCityList = async () => {
     try {
-      const data = getCityList();
+      const data = await getCityList();
       this.setState({ cityList: data });
     } catch (error) {
       throw error;

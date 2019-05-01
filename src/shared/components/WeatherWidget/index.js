@@ -4,7 +4,7 @@ import { get } from 'axios';
 import styles from './WeatherWidget.module.css';
 import WeatherImage from '../WeatherImage';
 import Autocomplete from '../Autocomplete';
-import cityList from '../../assets/data/cityList.json';
+import getCityData from '../../utils/getCityData';
 import { ReactComponent as WindDirectionIndicator } from '../../assets/images/WindDirectionIndicator.svg';
 
 //
@@ -34,21 +34,21 @@ type BodyListItemProps = {
 
 type WindSpeedIndicatorProps = {
   windSpeed: number,
-  windowDirection?: number,
+  windDirection?: number,
 };
 
 //
 // Helpers
 // --------------------------------------------------------------------
 
-const BodyListItem = ({ label, value }: BodyListItemProps) => (
+export const BodyListItem = ({ label, value }: BodyListItemProps) => (
   <li className={styles.weatherWidget__body__list__item}>
     <span className={styles.weatherWidget__body__list__item__label}>{label}</span>
     <span className={styles.weatherWidget__body__list__item__value}>{value}</span>
   </li>
 );
 
-const WindSpeedIndicator = ({ windSpeed, windDirection }: WindSpeedIndicatorProps) => (
+export const WindSpeedIndicator = ({ windSpeed, windDirection }: WindSpeedIndicatorProps) => (
   <span>
     <span className={styles.weatherWidget__body__list__item__weatherSpeed}>{`${windSpeed} m/s`}</span>
     {windDirection !== undefined ? (
@@ -64,7 +64,7 @@ const WindSpeedIndicator = ({ windSpeed, windDirection }: WindSpeedIndicatorProp
   </span>
 );
 
-const setUrlForCity = (city) => {
+export const setUrlForCity = (city) => {
   if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     const { title } = document;
     const { origin } = window.location;
@@ -80,12 +80,15 @@ const setUrlForCity = (city) => {
 class WeatherWidget extends Component<WeatherWidgetProps, State> {
   constructor(props: WeatherWidgetProps) {
     super(props);
-    const { city, type, description, temp, tempMin, tempMax, humidity, windSpeed, windDirection } = props;
 
     this.state = { ...props, cityList: [] };
   }
 
-  getCityList = async () => {
+  componentDidMount() {
+    this.setupCityList();
+  }
+
+  setupCityList = async () => {
     try {
       const { data } = await get('http://localhost:8500/get-city-list');
       this.setState({ cityList: data });
@@ -94,14 +97,9 @@ class WeatherWidget extends Component<WeatherWidgetProps, State> {
     }
   };
 
-  getCityData = async (city) => {
+  setupCityData = async (city) => {
     try {
-      const { data } = await get(`http://localhost:8500/get-city-weather/${city}`);
-      // I realise this looks ridiculous, and it is, but I've got to get out of here. Minor bug
-      // to be resolved on the backend
-      if (!Object.prototype.hasOwnProperty.call(data, 'windDirection')) {
-        data.windDirection = undefined;
-      }
+      const data = await getCityData(city);
       this.setState({ ...data });
     } catch (error) {
       console.log(error);
@@ -110,27 +108,12 @@ class WeatherWidget extends Component<WeatherWidgetProps, State> {
   };
 
   onChangeCity = (newCity) => {
-    this.getCityData(newCity);
+    this.setupCityData(newCity);
     setUrlForCity(newCity);
   };
 
-  componentDidMount() {
-    this.getCityList();
-  }
-
   render() {
-    const {
-      city,
-      type,
-      description,
-      temp,
-      tempMin,
-      tempMax,
-      humidity,
-      windSpeed,
-      windDirection,
-      cityList,
-    } = this.state;
+    const { city, type, temp, humidity, windSpeed, windDirection, cityList } = this.state;
     return (
       <div className={styles.weatherWidget}>
         <header className={styles.weatherWidget__header}>

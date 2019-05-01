@@ -8,7 +8,7 @@ A simple weather widget for displaying current weather data across Denmark.
 
 ### Starting
 
-Add a `.env` file to the root directory with your Open Weather Map API KEY.
+1. Add a `.env` file to the root directory with your Open Weather Map API KEY.
 
 For example:
 
@@ -16,7 +16,9 @@ For example:
 WEATHER_API_KEY=YOUR_API_KEY
 ```
 
-`yarn start` or `npm run start`
+2. Install depdendencies with `yarn install` or `npm install`
+
+3. Start the application with `yarn start` or `npm run start`
 
 ### Testing
 
@@ -31,7 +33,7 @@ go to this food-truck festival in Nørrebro, unfortunately, but I may be able to
 
 ### Building
 
-Add a `.env` file to the root directory with your Open Weather Map API KEY.
+1. Add a `.env` file to the root directory with your Open Weather Map API KEY.
 
 For example:
 
@@ -39,7 +41,9 @@ For example:
 WEATHER_API_KEY=YOUR_API_KEY
 ```
 
-`yarn build` or `npm run build`
+2. Install depdendencies with `yarn install` or `npm install`
+
+3. Build the application with `yarn build` or `npm run build`
 
 ## Credits
 

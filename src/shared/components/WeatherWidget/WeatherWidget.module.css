@@ -24,18 +24,6 @@
   position: relative;
 }
 
-.weatherWidget__header__h2 {
-  margin: 0;
-  font-weight: 100;
-  font-size: 16px;
-  span {
-    display: inline-block;
-  }
-}
-
-.weatherWidget__header__h2__prefix {
-}
-
 .weatherWidget__header__label {
   padding: 4px;
   background: #fff;

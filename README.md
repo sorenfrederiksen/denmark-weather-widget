@@ -50,3 +50,7 @@ WEATHER_API_KEY=YOUR_API_KEY
 The widget was built on a modified version of this boilerplate: https://github.com/manuelbieh/react-ssr-setup
 
 And uses these free-for-commercial-use icons: https://www.iconfinder.com/iconsets/weather-and-forecast-free
+
+## Issues
+
+Please get in touch. (My number has, hopefully, been provided to you.)

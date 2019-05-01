@@ -29,7 +29,7 @@ describe('(Component) WeatherWidget', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should fetch new dummy data, change state when changing city', () => {
+  it('should fetch new data, change state and display when changing city', () => {
     wrapper.instance().onChangeCity('Skagen');
     setTimeout(() => {
       expect(wrapper.state().city).toBe('Skagen');

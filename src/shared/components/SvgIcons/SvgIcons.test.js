@@ -12,13 +12,4 @@ describe('(Component) SvgIcons', () => {
   it('should match snapshot.', () => {
     expect(wrapper).toMatchSnapshot();
   });
-  /*
-  it('should appear deactivated, when deactivated.', () => {
-    const newProps = {
-      ...props,
-      isLive: false,
-    };
-
-    wrapper = shallow(<Features {...newProps} />);
-  });*/
 });

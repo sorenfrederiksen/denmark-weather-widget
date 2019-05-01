@@ -64,9 +64,8 @@ export const WindSpeedIndicator = ({ windSpeed, windDirection }: WindSpeedIndica
   </span>
 );
 
-export const setUrlForCity = (city) => {
+const setUrlForCity = (city) => {
   if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-    const { title } = document;
     const { origin } = window.location;
     const newUrl = `${origin}?city=${city}`;
     window.history.replaceState({}, document.title, newUrl);

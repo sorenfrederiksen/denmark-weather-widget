@@ -36,4 +36,11 @@ describe('(Component) WeatherWidget', () => {
       expect(wrapper.find(styles.weatherWidget__header__label).text()).toBe('Skagen');
     });
   });
+
+  it('should setup city list on mounting', () => {
+    const dummyCityListLength = 6;
+    setTimeout(() => {
+      expect(wrapper.state().cityList.length).toBe(dummyCityListLength);
+    });
+  });
 });

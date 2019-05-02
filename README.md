@@ -53,4 +53,4 @@ And uses these free-for-commercial-use icons: https://www.iconfinder.com/iconset
 
 ## Issues
 
-If anything fails to work, please get in touch. (My number has, hopefully, been provided to you.)
+If anything fails to work, please get in touch.
